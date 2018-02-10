@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : ScriptableObject
+public abstract class Inventory : ScriptableObject
 {
 
-    public Dictionary<Item, int> inventory;
+    public Dictionary<Item, int> itemDict;
 
 }

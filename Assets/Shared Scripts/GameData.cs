@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //I know it's a terrible name, I'm still half asleep
+using UnityEngine.SceneManagement;
 
 public enum SceneType
 {
@@ -25,6 +26,7 @@ public class GameData
     public const string OverworldSceneName = "OverworldTestScene";
 
     private static GameData ActualInstance;
+    public RealInventory currentInventory { get; private set; }
 
     public static GameData Instance
     {
@@ -39,7 +41,7 @@ public class GameData
 
     public GameData()
     {
-
+        currentInventory = new RealInventory();
     }
 
     //actual properties
@@ -48,5 +50,8 @@ public class GameData
     public ZoneEnvironment LastZone { get; set; }
     public bool? BattleResult { get; set; }
 
-    public RealInventory inventory;
+    public void ChangeSceneBecauseREasons()
+    {
+        SceneManager.LoadScene("");
+    }
 }

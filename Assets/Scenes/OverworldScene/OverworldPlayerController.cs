@@ -16,7 +16,7 @@ namespace Overworld
         public float MoveSpeedMult = 1.0f;
         public float RunFactor = 2.0f;
         public float RotateFactor = 30.0f;
-        
+
 
         // Use this for initialization
         void Start()
@@ -51,19 +51,19 @@ namespace Overworld
             //do rotate separately
             float rotateValue = Input.GetAxis("Horizontal");
 
-            if(Mathf.Abs(rotateValue) >= MoveDeadzone)
+            if (Mathf.Abs(rotateValue) >= MoveDeadzone)
             {
                 transform.Rotate(Vector3.up, rotateValue * RotateFactor * Time.deltaTime);
                 moved = true;
             }
 
-            if(Mathf.Abs(moveValue) >= MoveDeadzone)
+            if (Mathf.Abs(moveValue) >= MoveDeadzone)
             {
                 PlayerCC.Move(transform.forward * moveValue * MoveSpeedMult * Time.deltaTime * RunMult);
                 moved = true;
             }
 
-            if(!moved)
+            if (!moved)
             {
                 PlayerAnimator.Play("Idle");
             }
@@ -73,7 +73,33 @@ namespace Overworld
             }
 
             PlayerCC.Move(Physics.gravity);
-            
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Item"))
+            {
+                Debug.Log("pick it up!!");
+                // pick up item
+                Item i = other.GetComponent<Item>();
+                TryToPickUp(i);
+            }
+        }
+
+        private bool TryToPickUp(Item item)
+        {
+            // check if inventory is full, if not, pick up
+            if (GameData.Instance.currentInventory.CanPickUpMore())
+            {
+                GameData.Instance.currentInventory.itemDict.Add(item, 1);
+                item.inInventory = true;
+                Debug.Log("Picked up " + item.itemID);
+                return true;
+            }
+            // else, return false;
+            Debug.Log("can't pick up - inventory full!");
+            return false;
         }
     }
 }
