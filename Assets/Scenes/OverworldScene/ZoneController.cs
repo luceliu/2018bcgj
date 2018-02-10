@@ -8,7 +8,7 @@ namespace Overworld
     public class ZoneController : MonoBehaviour
     {
         public OverworldSceneController SceneController;
-        public ZoneEnvironment Environment;
+        public ZoneEnvironment Zone;
 
         public bool PlayerInZone { get { return InZone; } }
         private bool InZone;
