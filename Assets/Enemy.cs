@@ -12,11 +12,6 @@ public class Enemy : MonoBehaviour
 	{
 	    RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(XMoveDirection, 0));
 		gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(XMoveDirection, 0) * EnemySpeed;
-        
-        if (hit.distance < 1f)
-	    {
-	        Flip();
-	    }
 	}
 
     void OnCollisionEnter2D(Collision2D col)
@@ -26,6 +21,10 @@ public class Enemy : MonoBehaviour
             Debug.Log("I hit the player");
             var player = col.gameObject.GetComponent<Player_Health>();
             player.PlayerDies();
+        }
+        else
+        {
+            Flip();
         }
     }
 
