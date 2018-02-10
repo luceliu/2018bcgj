@@ -5,16 +5,19 @@ using UnityEngine;
 namespace Overworld
 {
 
-    public class OverworldSceneController : MonoBehaviour
+    public class ChaserSpawner : MonoBehaviour
     {
+        //TODO spawner config
 
-        public ZoneController ZonePlayerIsIn; //this should probably be encapsulated but Unity hates proper ooop
-
+        public ZoneController Zone;
 
         // Use this for initialization
         void Start()
         {
-
+            if (Zone == null)
+            {
+                Debug.LogError("ChaserSpawner on " + gameObject.name + " has no Zone!");
+            }
         }
 
         // Update is called once per frame
