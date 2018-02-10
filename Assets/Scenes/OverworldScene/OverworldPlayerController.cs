@@ -9,6 +9,7 @@ namespace Overworld
     {
         const float MoveDeadzone = 0.1f;
 
+        public OverworldSceneController SceneController;
         public Transform CameraTransform;
         public Animator PlayerAnimator;
         public CharacterController PlayerCC;
@@ -16,11 +17,18 @@ namespace Overworld
         public float MoveSpeedMult = 1.0f;
         public float RunFactor = 2.0f;
         public float RotateFactor = 30.0f;
+
+        public float EnergyLossPerSecond = 1.0f;
         
+        public bool SleepBegan { get; private set; }
+        public bool MoveLocked { get; private set; }
 
         // Use this for initialization
         void Start()
         {
+            if (SceneController == null)
+                SceneController = transform.root.GetComponent<OverworldSceneController>();
+
             if (CameraTransform == null)
                 CameraTransform = Camera.main.transform;
 
@@ -35,10 +43,42 @@ namespace Overworld
         void Update()
         {
             HandleMove();
+            HandleEnergy();
+        }
+
+        private void HandleEnergy()
+        {
+            if (SleepBegan)
+                return;
+
+            if(GameData.Instance.PlayerEnergy < GameData.PlayerSleepThresholdFrac * GameData.PlayerMaxEnergy)
+            {
+                BeginSleep();
+            }
+
+            if(Input.GetButtonDown("Fire2"))
+            {
+                BeginSleep();
+            }
+        }
+
+        public void BeginSleep()
+        {
+            SleepBegan = true;
+            PlayerAnimator.Play("Idle"); //TODO get sleep animation
+
+            //TODO fadeout/coroutine/etc
+
+            //then end it
+            SceneController.ExitToDreamworld();
+
         }
 
         private void HandleMove()
         {
+            if (MoveLocked || SleepBegan)
+                return;
+
             bool moved = false;
 
             //Vector3 moveVector = new Vector3(0, 0, Input.GetAxis("Vertical"));

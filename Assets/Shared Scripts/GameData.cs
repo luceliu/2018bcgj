@@ -18,6 +18,7 @@ public class GameData
 {
     //sticking these here BECAUSE WHY NOT
     public const float PlayerMaxEnergy = 100f;
+    public const float PlayerSleepThresholdFrac = 0.25f; 
     public const float PlayerLoseRecoverFrac = 0.2f;
     public const float PlayerWinRecoverFrac = 1.0f;
 
@@ -39,7 +40,7 @@ public class GameData
 
     public GameData()
     {
-
+        PlayerEnergy = PlayerMaxEnergy;
     }
 
     //actual properties
