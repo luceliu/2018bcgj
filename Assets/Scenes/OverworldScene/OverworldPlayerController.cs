@@ -51,6 +51,8 @@ namespace Overworld
             if (SleepBegan)
                 return;
 
+            GameData.Instance.PlayerEnergy -= EnergyLossPerSecond * Time.deltaTime;
+
             if(GameData.Instance.PlayerEnergy < GameData.PlayerSleepThresholdFrac * GameData.PlayerMaxEnergy)
             {
                 BeginSleep();
