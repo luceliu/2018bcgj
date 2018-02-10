@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1215049067879842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.79, y: -2.25, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: 6.906, y: -1.78, z: 0}
+  m_LocalScale: {x: 0.31764013, y: 0.27488968, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,18 +75,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.04, y: -0.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.52, y: 0.52}
-    newSize: {x: 0.52, y: 0.52}
+    oldSize: {x: 7.96, y: 9.1}
+    newSize: {x: 7.96, y: 9.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.52, y: 0.52}
+  m_Size: {x: 7.51, y: 9.35}
   m_EdgeRadius: 0
 --- !u!114 &114166131614776966
 MonoBehaviour:
@@ -101,6 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemySpeed: 3
   XMoveDirection: 1
+  player: {fileID: 0}
+  projectile: {fileID: 50472703324002456, guid: ce0365cd8fe69874098ea57b5cb459a1,
+    type: 2}
+  bulletImpulse: 50
 --- !u!212 &212859932837410952
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -135,12 +139,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: 00df97a57e1ab9d4eb20b4abd9e590a3, type: 3}
-  m_Color: {r: 0.74264705, g: 0.0709883, b: 0.0709883, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 21300000, guid: d3fbbd9aab852404db66ddcd53f802af, type: 3}
+  m_Color: {r: 0.99264705, g: 0.99264705, b: 0.99264705, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.52, y: 0.52}
+  m_Size: {x: 7.96, y: 9.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
