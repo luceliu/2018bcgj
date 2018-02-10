@@ -47,4 +47,6 @@ public class GameData
     public SceneType LastScene { get; set; }
     public ZoneEnvironment LastZone { get; set; }
     public bool? BattleResult { get; set; }
+
+    public RealInventory inventory;
 }
