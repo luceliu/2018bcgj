@@ -24,6 +24,11 @@ namespace Overworld
         {
             if (GameData.Instance.BattleResult.HasValue)
                 ResolveBattleResult();
+
+            //reset fields
+            GameData.Instance.BattleResult = null;
+            GameData.Instance.LastScene = SceneType.OverworldScene;
+            GameData.Instance.LastZone = ZoneEnvironment.EmptyRoom;
         }
 
         // Update is called once per frame
@@ -55,11 +60,6 @@ namespace Overworld
                 GameData.Instance.PlayerEnergy += GameData.PlayerMaxEnergy * GameData.PlayerLoseRecoverFrac;
                 GameData.Instance.PlayerEnergy = Mathf.Clamp(GameData.Instance.PlayerEnergy, 0, GameData.PlayerMaxEnergy);
             }
-
-            //reset fields
-            GameData.Instance.BattleResult = null;
-            GameData.Instance.LastScene = SceneType.OverworldScene;
-            GameData.Instance.LastZone = ZoneEnvironment.EmptyRoom;
 
         }
     }
