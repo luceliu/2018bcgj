@@ -8,6 +8,7 @@ public class DialogPanel : MonoBehaviour
 {
     public List<string> msgs;
     public Text dialog;
+    private int noMsgsToDisplay = 5;
 
     // Use this for initialization
     void Start()
@@ -20,12 +21,9 @@ public class DialogPanel : MonoBehaviour
     {
         int count = msgs.Count;
         string newDialog = "";
-        string time = "" + System.DateTime.Now + "] ";
-        int start = (time.IndexOf(":", System.StringComparison.CurrentCulture)) - 2;
-        time = "[" + time.Substring(start);
+        string time = GetTime();
         msgs.Add(time + msgToLog + "\n");
-        // TODO: only display last 5 messages
-        IEnumerable<string> displayMsgs = msgs.Skip(count - 5);
+        IEnumerable<string> displayMsgs = msgs.Skip(count - noMsgsToDisplay);
 
         foreach (string msg in displayMsgs)
         {
@@ -33,5 +31,13 @@ public class DialogPanel : MonoBehaviour
         }
 
         dialog.text = newDialog;
+    }
+
+    private static string GetTime()
+    {
+        string time = "" + System.DateTime.Now + "] ";
+        int start = (time.IndexOf(":", System.StringComparison.CurrentCulture)) - 2;
+        time = "[" + time.Substring(start);
+        return time;
     }
 }
