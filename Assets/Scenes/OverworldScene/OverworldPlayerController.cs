@@ -80,26 +80,13 @@ namespace Overworld
         {
             if (other.gameObject.CompareTag("Item"))
             {
-                Debug.Log("pick it up!!");
+                //Debug.Log("pick it up!!");
                 // pick up item
                 Item i = other.GetComponent<Item>();
-                TryToPickUp(i);
+                GameData.Instance.CurrentInventory.AddItem(i);
+                GameData.Instance.CurrentInventory.GetItemsInInventory();
             }
-        }
-
-        private bool TryToPickUp(Item item)
-        {
-            // check if inventory is full, if not, pick up
-            if (GameData.Instance.currentInventory.CanPickUpMore())
-            {
-                GameData.Instance.currentInventory.itemDict.Add(item, 1);
-                item.inInventory = true;
-                Debug.Log("Picked up " + item.itemID);
-                return true;
-            }
-            // else, return false;
-            Debug.Log("can't pick up - inventory full!");
-            return false;
+            //Debug.Log("pick it up!!");
         }
     }
 }

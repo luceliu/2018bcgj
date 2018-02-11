@@ -11,14 +11,15 @@ public abstract class Item : MonoBehaviour
 
     void Start()
     {
-
+        inInventory = false;
     }
 
     void Update()
     {
         if (inInventory)
         {
-            this.GetComponent<Renderer>().enabled = false;
+            GetComponent<Renderer>().enabled = false;
+            Debug.Log("should have disabled");
         }
     }
 

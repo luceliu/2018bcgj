@@ -4,6 +4,7 @@ using UnityEngine;
 
 //I know it's a terrible name, I'm still half asleep
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public enum SceneType
 {
@@ -26,7 +27,7 @@ public class GameData
     public const string OverworldSceneName = "OverworldTestScene";
 
     private static GameData ActualInstance;
-    public RealInventory currentInventory { get; private set; }
+    public RealInventory CurrentInventory { get; private set; }
 
     public static GameData Instance
     {
@@ -41,7 +42,9 @@ public class GameData
 
     public GameData()
     {
-        currentInventory = new RealInventory();
+        CurrentInventory = ScriptableObject.CreateInstance<RealInventory>();
+        Debug.Log("inventory created");
+        //CurrentInventory = new RealInventory();
     }
 
     //actual properties
@@ -49,9 +52,4 @@ public class GameData
     public SceneType LastScene { get; set; }
     public ZoneEnvironment LastZone { get; set; }
     public bool? BattleResult { get; set; }
-
-    public void ChangeSceneBecauseREasons()
-    {
-        SceneManager.LoadScene("");
-    }
 }
