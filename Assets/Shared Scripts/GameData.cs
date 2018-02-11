@@ -23,8 +23,8 @@ public class GameData
     public const float PlayerLoseRecoverFrac = 0.2f;
     public const float PlayerWinRecoverFrac = 1.0f;
 
-    public const string DreamworldSceneName = "BattleTestScene";
-    public const string OverworldSceneName = "OverworldTestScene";
+    public const string DreamworldSceneName = "DreamScene";
+    public const string OverworldSceneName = "OverworldScene";
 
     private static GameData ActualInstance;
     public RealInventory CurrentInventory { get; private set; }

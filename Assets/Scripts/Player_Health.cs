@@ -29,9 +29,11 @@ public class Player_Health : MonoBehaviour
 
     public void PlayerDies()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         // Doesn't have to reset scene. Can do take damage -> invuln
+
+        GameObject.Find("GameController").GetComponent<GameController>().WakeUp(false);
     }
 
     public void PlayerHit()

@@ -17,3 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 5608d429eb0c28c4a95a60fa48fc9faf
+  - enabled: 1
+    path: Assets/Scenes/DreamScene.unity
+    guid: 677c862c1cd213043a79b13f4218f7ff
+  - enabled: 1
+    path: Assets/Scenes/DreamSceneMath.unity
+    guid: 453045f3b2e6c35428fdd7ae93b34db6

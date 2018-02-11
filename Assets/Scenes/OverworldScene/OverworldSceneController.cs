@@ -51,12 +51,24 @@ namespace Overworld
             if (ZonePlayerIsIn != null)
                 GameData.Instance.LastZone = ZonePlayerIsIn.Zone;
 
-            SceneManager.LoadScene(GameData.DreamworldSceneName); 
+            switch (GameData.Instance.LastZone)
+            {
+                case ZoneEnvironment.MathRoom:
+                    SceneManager.LoadScene("DreamSceneMath");
+                    break;
+                default:
+                    SceneManager.LoadScene(GameData.DreamworldSceneName);
+                    break;
+            }
+
+            
         }
 
         private void ResolveBattleResult()
         {
             bool battleResult = GameData.Instance.BattleResult.Value;
+
+            Debug.Log(battleResult.ToString() + "the battle");
 
             if(battleResult)
             {

@@ -2208,6 +2208,7 @@ MonoBehaviour:
   RunFactor: 1.5
   RotateFactor: 360
   CameraRotateFactor: 90
+  CameraElevateFactor: 60
   EnergyLossPerSecond: 1
 --- !u!114 &114758673179339226
 MonoBehaviour:
@@ -2609,7 +2610,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_TargetDisplay: 0
 --- !u!224 &224003253117262260
 RectTransform:
