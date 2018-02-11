@@ -46,6 +46,7 @@ namespace Overworld
                 if(elapsed >= DestroyInterval && numChasers > 0)
                 {
                     Destroy(transform.GetChild(0).gameObject);
+                    elapsed = 0;
                 }
                 
             }

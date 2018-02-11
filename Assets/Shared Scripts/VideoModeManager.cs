@@ -22,7 +22,7 @@ public static class VideoModeManager
         if (IsSet)
             return;
 
-        FullScreen = Screen.fullScreen;
+        FullScreen = Screen.fullScreen; //broken?
 
         Resolution[] allResolutions = Screen.resolutions;
         int maxWidth = 0;
