@@ -4,7 +4,6 @@ using UnityEngine;
 
 //I know it's a terrible name, I'm still half asleep
 using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public enum SceneType
 {
@@ -29,7 +28,7 @@ public class GameData
 
     private static GameData ActualInstance;
     public RealInventory CurrentInventory { get; private set; }
-
+    public InventoryPanel inventoryPanel;
     public static GameData Instance
     {
         get
@@ -46,6 +45,7 @@ public class GameData
         CurrentInventory = ScriptableObject.CreateInstance<RealInventory>();
         PlayerEnergy = PlayerMaxEnergy;
         TookMelatonin = false;
+        inventoryPanel = GameObject.Find("Canvas").GetComponent<InventoryPanel>();
     }
 
     //actual properties

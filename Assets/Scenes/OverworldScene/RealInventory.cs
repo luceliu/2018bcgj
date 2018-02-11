@@ -18,6 +18,19 @@ public class RealInventory : Inventory
         return false;
     }
 
+    public int GetCountOf(string item)
+    {
+        try
+        {
+            return itemDict[item];
+        }
+        catch
+        {
+            Debug.Log("None of this item.");
+            return 0;
+        }
+    }
+
     public override void AddItem(Item item)
     {
         if (IsThereSpace())
@@ -33,7 +46,7 @@ public class RealInventory : Inventory
                 itemDict.Add(item.itemID, 1);
                 Debug.Log("Picked up a brand new " + item.itemID);
             }
-
+            GameData.Instance.inventoryPanel.UpdatePanelCount();
             Destroy(item.gameObject);
             Debug.Log("Destroyed");
         }
@@ -54,8 +67,6 @@ public class RealInventory : Inventory
         if (itemDict.ContainsKey(item) && itemDict[item] > 0)
         {
             UseAccordingly(item);
-            itemDict[item] -= 1;
-            Debug.Log("You used " + item + "!");
         }
 
         else
@@ -69,9 +80,18 @@ public class RealInventory : Inventory
         switch (item)
         {
             case "melatonin":
-                // TODO: do something to use it - set a flag in GameData perhaps?
-                GameData.Instance.TookMelatonin = true;
-                Debug.Log("GameData knows that you took melatonin");
+                if (!GameData.Instance.TookMelatonin)
+                {
+                    itemDict[item] -= 1;
+                    Debug.Log("You used " + item + "!");
+                    GameData.Instance.inventoryPanel.UpdatePanelCount();
+                    GameData.Instance.TookMelatonin = true;
+                    Debug.Log("GameData knows that you took melatonin");
+                }
+                else
+                {
+                    Debug.Log("You've already taken melatonin today!");
+                }
                 break;
         }
     }
