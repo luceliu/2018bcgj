@@ -136,10 +136,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1280435289217912, guid: d171ef8e2262bb542b3386babd973759,
     type: 2}
   playerSpeed: 10
-  playerJumpPower: 1250
+  playerJumpPower: 2000
   isGrounded: 0
-  bulletSpeed: 15
-  bulletDelay: 1
+  bulletSpeed: 20
+  bulletDelay: 0.01
 --- !u!212 &212142920915410156
 SpriteRenderer:
   m_ObjectHideFlags: 1

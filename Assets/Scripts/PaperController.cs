@@ -8,11 +8,12 @@ public class PaperController : MonoBehaviour {
 	public float bulletImpulse = 20.0f;
 	// Use this for initialization
 	private Vector3 playerPosition;
+	private GameObject player;
 
 	void Start() {
-		GameObject player = GameObject.FindGameObjectWithTag ("player");
+		player = GameObject.FindGameObjectWithTag ("player");
 		playerPosition = player.transform.position;
-	    Destroy(gameObject, 2);
+	   	Destroy(gameObject, 3);
     }
 
 	void OnTriggerEnter2D(Collider2D col)
@@ -26,12 +27,12 @@ public class PaperController : MonoBehaviour {
 		        player.PlayerHit();
 		        Destroy(gameObject);
 		    }
-		}
+		} 
 		else if (col.gameObject.tag != "enemy")
 		{
             // If you collide into something that isn't yourself, delete yourself
 		    Destroy(gameObject);
-        }
+        } 
 	}
 	// Update is called once per frame
 	void Update () {
