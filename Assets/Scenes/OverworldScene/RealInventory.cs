@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class RealInventory : Inventory
 {
-    new public int maxNoItems = 4; // can be changed later thru powerups?
-
-    new public Dictionary<string, int> itemDict = new Dictionary<string, int>();
+    void Awake()
+    {
+        itemDict = new Dictionary<string, int>();
+        maxNoItems = 4;
+    }
 
     public override bool IsThereSpace()
     {
