@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class Inventory : ScriptableObject
 {
     public int maxNoItems;
-    public Dictionary<Item, int> itemDict;
+    public Dictionary<string, int> itemDict;
 
     public abstract bool IsThereSpace();
 
