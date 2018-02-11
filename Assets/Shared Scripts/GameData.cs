@@ -28,8 +28,10 @@ public class GameData
 
     private static GameData ActualInstance;
     public RealInventory CurrentInventory { get; private set; }
-    public InventoryPanel inventoryPanel;
-    public DialogPanel dialogPanel;
+
+    //I just hacked around it
+    public InventoryPanel inventoryPanel { get { return GameObject.Find("WorldRoot").GetComponentInChildren<InventoryPanel>(); } }
+    public DialogPanel dialogPanel { get { return GameObject.Find("DialogPanel").GetComponent<DialogPanel>(); } } 
     public static GameData Instance
     {
         get
@@ -46,8 +48,10 @@ public class GameData
         CurrentInventory = ScriptableObject.CreateInstance<RealInventory>();
         PlayerEnergy = PlayerMaxEnergy;
         TookMelatonin = false;
-        inventoryPanel = GameObject.Find("Canvas").GetComponent<InventoryPanel>();
-        dialogPanel = GameObject.Find("DialogPanel").GetComponent<DialogPanel>();
+
+        //YOU CANNOT DO THIS I SPECIFICALLY CAUTIONED AGAINST IT
+        //inventoryPanel = GameObject.Find("Canvas").GetComponent<InventoryPanel>();
+        //dialogPanel = GameObject.Find("DialogPanel").GetComponent<DialogPanel>();
     }
 
     //actual properties
