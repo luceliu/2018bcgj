@@ -30,16 +30,16 @@ public class ChaserScript : MonoBehaviour
         PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         SpawnerTransform = transform.parent;
-        Debug.Log(SpawnerTransform.gameObject.name);
+        //Debug.Log(SpawnerTransform.gameObject.name);
 
         //initial velocity and state
         float iVelocity = Mathf.Clamp(MaxVelocity, 0, MaxAccel);
-        Debug.Log(iVelocity);
+        //Debug.Log(iVelocity);
         Vector3 vecToTarget = PlayerTransform.position - transform.position;
         Vector3 raisedVector = Quaternion.AngleAxis(BoostAngle, Vector3.left) * vecToTarget;
         //Vector3 raisedVector = vecToTarget;
         Velocity = raisedVector.normalized * iVelocity;
-        Debug.Log(Velocity.ToString());
+        //Debug.Log(Velocity.ToString());
 
         State = ChaserState.Boost;
 
