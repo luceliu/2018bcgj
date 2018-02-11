@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Player_Health : MonoBehaviour
 {
     public bool hasDied;
-    public int playerHealth = 2;
+    public int playerHealth = 3;
     public bool isTangible = true;
     public float secondsInvulnerable = 0.1f;
 
@@ -37,6 +37,7 @@ public class Player_Health : MonoBehaviour
     public void PlayerHit()
     {
         playerHealth--;
+        HeartsController.instance.UpdateHearts(playerHealth);
         PlayerInvulnerabilityStart();
         if (playerHealth < 1)
         {
