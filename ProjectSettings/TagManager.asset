@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - ground
+  - player
+  - enemy
+  - projectile
   layers:
   - Default
   - TransparentFX
