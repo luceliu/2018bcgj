@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
 
     void Awake()
     {
@@ -11,20 +12,21 @@ public class GameController : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         SoundManager.Instance.StartMusic();
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-		
-	}
+
+    }
 
     public void WakeUp(bool battleWon)
     {
         GameData.Instance.BattleResult = battleWon;
+        GameData.Instance.TookMelatonin = false;
         SceneManager.LoadScene(GameData.OverworldSceneName);
     }
 }
