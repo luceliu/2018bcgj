@@ -39,12 +39,14 @@ public class RealInventory : Inventory
             {
                 itemDict[item.itemID] += 1;
                 Debug.Log("Picked up another " + item.itemID);
+                GameData.Instance.dialogPanel.UpdateDialog("Picked up another " + item.itemID);
             }
 
             else
             {
                 itemDict.Add(item.itemID, 1);
                 Debug.Log("Picked up a brand new " + item.itemID);
+                GameData.Instance.dialogPanel.UpdateDialog("Picked up a brand new " + item.itemID);
             }
             GameData.Instance.inventoryPanel.UpdatePanelCount();
             Destroy(item.gameObject);
@@ -87,10 +89,12 @@ public class RealInventory : Inventory
                     GameData.Instance.inventoryPanel.UpdatePanelCount();
                     GameData.Instance.TookMelatonin = true;
                     Debug.Log("GameData knows that you took melatonin");
+                    GameData.Instance.dialogPanel.UpdateDialog("You took some " + item + "!");
                 }
                 else
                 {
                     Debug.Log("You've already taken melatonin today!");
+                    GameData.Instance.dialogPanel.UpdateDialog("You've already taken melatonin today!");
                 }
                 break;
         }
