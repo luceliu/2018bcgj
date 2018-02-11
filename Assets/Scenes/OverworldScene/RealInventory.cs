@@ -35,6 +35,8 @@ public class RealInventory : Inventory
             }
 
             item.inInventory = true;
+            Destroy(item.gameObject);
+            Debug.Log("Destroyed");
         }
     }
 

@@ -16,11 +16,12 @@ public abstract class Item : MonoBehaviour
 
     void Update()
     {
-        if (inInventory)
-        {
-            GetComponent<Renderer>().enabled = false;
-            Debug.Log("should have disabled");
-        }
+        //if (inInventory)
+        //{
+        //    GetComponent<Renderer>().enabled = false;
+        //    Destroy(this.gameObject);
+        //    Debug.Log("should have disabled");
+        //}
     }
 
 }

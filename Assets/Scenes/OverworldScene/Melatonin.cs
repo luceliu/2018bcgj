@@ -9,7 +9,6 @@ public class Melatonin : Item
     void Start()
     {
         itemID = "melatonin";
-        inInventory = false;
     }
 
     // Update is called once per frame

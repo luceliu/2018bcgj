@@ -80,13 +80,11 @@ namespace Overworld
         {
             if (other.gameObject.CompareTag("Item"))
             {
-                //Debug.Log("pick it up!!");
                 // pick up item
                 Item i = other.GetComponent<Item>();
                 GameData.Instance.CurrentInventory.AddItem(i);
                 GameData.Instance.CurrentInventory.GetItemsInInventory();
             }
-            //Debug.Log("pick it up!!");
         }
     }
 }
