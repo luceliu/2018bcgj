@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //I know it's a terrible name, I'm still half asleep
+using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public enum SceneType
 {
@@ -18,7 +20,7 @@ public class GameData
 {
     //sticking these here BECAUSE WHY NOT
     public const float PlayerMaxEnergy = 100f;
-    public const float PlayerSleepThresholdFrac = 0.25f; 
+    public const float PlayerSleepThresholdFrac = 0.25f;
     public const float PlayerLoseRecoverFrac = 0.2f;
     public const float PlayerWinRecoverFrac = 1.0f;
 
@@ -26,6 +28,7 @@ public class GameData
     public const string OverworldSceneName = "OverworldTestScene";
 
     private static GameData ActualInstance;
+    public RealInventory CurrentInventory { get; private set; }
 
     public static GameData Instance
     {
@@ -40,6 +43,8 @@ public class GameData
 
     public GameData()
     {
+        CurrentInventory = ScriptableObject.CreateInstance<RealInventory>();
+        Debug.Log("inventory created");
         PlayerEnergy = PlayerMaxEnergy;
     }
 

@@ -18,8 +18,8 @@ namespace Overworld
         public float RunFactor = 2.0f;
         public float RotateFactor = 30.0f;
 
+
         public float EnergyLossPerSecond = 1.0f;
-        
         public bool SleepBegan { get; private set; }
         public bool MoveLocked { get; private set; }
 
@@ -53,12 +53,12 @@ namespace Overworld
 
             GameData.Instance.PlayerEnergy -= EnergyLossPerSecond * Time.deltaTime;
 
-            if(GameData.Instance.PlayerEnergy < GameData.PlayerSleepThresholdFrac * GameData.PlayerMaxEnergy)
+            if (GameData.Instance.PlayerEnergy < GameData.PlayerSleepThresholdFrac * GameData.PlayerMaxEnergy)
             {
                 BeginSleep();
             }
 
-            if(Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("Fire2"))
             {
                 BeginSleep();
             }
@@ -103,19 +103,19 @@ namespace Overworld
             //do rotate separately
             float rotateValue = Input.GetAxis("Horizontal");
 
-            if(Mathf.Abs(rotateValue) >= MoveDeadzone)
+            if (Mathf.Abs(rotateValue) >= MoveDeadzone)
             {
                 transform.Rotate(Vector3.up, rotateValue * RotateFactor * Time.deltaTime);
                 moved = true;
             }
 
-            if(Mathf.Abs(moveValue) >= MoveDeadzone)
+            if (Mathf.Abs(moveValue) >= MoveDeadzone)
             {
                 PlayerCC.Move(transform.forward * moveValue * MoveSpeedMult * Time.deltaTime * RunMult);
                 moved = true;
             }
 
-            if(!moved)
+            if (!moved)
             {
                 PlayerAnimator.Play("Idle");
             }
@@ -125,7 +125,18 @@ namespace Overworld
             }
 
             PlayerCC.Move(Physics.gravity);
-            
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Item"))
+            {
+                // pick up item
+                Item i = other.GetComponent<Item>();
+                GameData.Instance.CurrentInventory.AddItem(i);
+                GameData.Instance.CurrentInventory.GetItemsInInventory();
+            }
         }
     }
 }
