@@ -5,10 +5,13 @@ using UnityEngine;
 public class EndSceneController : MonoBehaviour
 {
 
+    public static bool IgnoreVMMHack;
+
     // Use this for initialization
     void Start()
     {
-        VideoModeManager.SetMaximum();
+        if(!IgnoreVMMHack)
+            VideoModeManager.SetMaximum();
 
     }
 
