@@ -18,8 +18,10 @@ public class DivisonController : MonoBehaviour {
 		if (col.gameObject.tag == "player")
 		{
 			var player = col.gameObject.GetComponent<Player_Health> ();
+			Debug.Log ("get player");
 			if (player.isTangible)
 			{
+				Debug.Log ("Got hit");
 				player.PlayerHit();
 				Destroy(gameObject);
 			}
