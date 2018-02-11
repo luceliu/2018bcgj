@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start ()
+    void Awake()
     {
-		
+        VideoModeManager.SetDreamworld();
+    }
+
+    // Use this for initialization
+    void Start ()
+    {
+        SoundManager.Instance.StartMusic();
 	}
 	
 	// Update is called once per frame
