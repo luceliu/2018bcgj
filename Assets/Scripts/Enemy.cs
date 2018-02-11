@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
 	void Shoot() {
 		Rigidbody2D bullet = (Rigidbody2D)Instantiate (projectile, transform.position, transform.rotation);
 		bullet.AddForce (transform.forward * bulletImpulse, ForceMode2D.Impulse);
-		Destroy (bullet.gameObject, 2);
 	}
 
 	// Update is called once per frame
@@ -37,7 +36,7 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("I hit the player");
             var player = col.gameObject.GetComponent<Player_Health>();
-            player.PlayerDies();
+            player.PlayerHit();
         }
         else
         {
