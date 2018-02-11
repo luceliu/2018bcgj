@@ -69,11 +69,21 @@ namespace Overworld
             SleepBegan = true;
             PlayerAnimator.Play("Idle"); //TODO get sleep animation
 
-            //TODO fadeout/coroutine/etc
+            //fadeout/coroutine/etc
+            StartCoroutine(FadeoutAwaitCoroutine());            
+
+        }
+
+        IEnumerator FadeoutAwaitCoroutine()
+        {
+            const float interval = 1.0f;
+
+            GetComponentInChildren<FadeHackScript>().ExecuteFadeout(interval);
+
+            yield return new WaitForSeconds(interval);
 
             //then end it
             SceneController.ExitToDreamworld();
-
         }
 
         private void HandleMove()
