@@ -82,6 +82,17 @@ public static class VideoModeManager
         Screen.SetResolution(r.x, r.y, FullScreen);
     }
 
+    public static void SetMaximum()
+    {
+        var res = Screen.resolutions[Screen.resolutions.Length - 1];
+
+        if (IsEditor)
+            return;
+
+        if (FullScreen)
+            Screen.SetResolution(res.width, res.height, true);
+    }
+
 
     public static string GetNicelyFormattedString()
     {

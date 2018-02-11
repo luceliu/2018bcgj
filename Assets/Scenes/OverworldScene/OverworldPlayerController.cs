@@ -160,7 +160,7 @@ namespace Overworld
                 Vector3 fakeTransformVec = Quaternion.AngleAxis(IntendedCameraRotation, Vector3.up) * Vector3.forward;
                 float angleOffset = Vector3.SignedAngle(Vector3.forward, fakeTransformVec, Vector3.up);
                 moveVec3 = Quaternion.AngleAxis(angleOffset, Vector3.up) * moveVec3;
-                transform.Translate(moveVec3 * MoveSpeedMult * RunFactor * Time.deltaTime, Space.World);
+                transform.Translate(moveVec3 * MoveSpeedMult * RunMult * 2.0f * Time.deltaTime, Space.World);
 
                 //rotate toward new facing
                 Vector2 flatHeading = new Vector2(transform.forward.x, transform.forward.z);
