@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 	private Animator anim;
 	private bool running;
     public float bulletSpeed = 10;
-    public float bulletDelay = 1;
+    public float bulletDelay;
     private bool canShoot = true;
 
 	void Start()
@@ -116,23 +116,23 @@ public class PlayerController : MonoBehaviour
 	        Vector3 bulletInitialPosition;
 	        Vector2 bulletVelocity;
 
-	        canShoot = false;
+	      //  canShoot = false;
 
 	        if (facingRight == true && facingUp == false)
 	        {
-	            bulletInitialPosition = new Vector3(transform.position.x + 1f, transform.position.y);
+	            bulletInitialPosition = new Vector3(transform.position.x + 2.5f, transform.position.y);
 
 	            bulletVelocity = transform.right * bulletSpeed;
 	        }
 	        else if (facingRight == false && facingUp == false)
 	        {
 
-	            bulletInitialPosition = new Vector3(transform.position.x - 1f, transform.position.y);
+	            bulletInitialPosition = new Vector3(transform.position.x - 2.5f, transform.position.y);
 	            bulletVelocity = -transform.right * bulletSpeed;
 	        }
 	        else
 	        {
-	            bulletInitialPosition = new Vector3(transform.position.x - 0.0f, transform.position.y + 1f);
+	            bulletInitialPosition = new Vector3(transform.position.x - 0.0f, transform.position.y + 3f);
 	            bulletVelocity = transform.up * bulletSpeed;
 	        }
 
@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
             SoundManager.Instance.PlaySound(SoundManager.SHOOTBOOK_SOUND);
 
             // Don't let player shoot gain for timeDelay()
-            Invoke("ResetBulletDelay", bulletDelay);
+          //  Invoke("ResetBulletDelay", bulletDelay);
         }
 	}
 

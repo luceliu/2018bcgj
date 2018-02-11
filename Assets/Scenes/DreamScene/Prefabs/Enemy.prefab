@@ -105,6 +105,7 @@ MonoBehaviour:
   projectile: {fileID: 50472703324002456, guid: ce0365cd8fe69874098ea57b5cb459a1,
     type: 2}
   bulletImpulse: 20
+  monsterSpeed: 0.05
 --- !u!114 &114579624203416496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  secondsInvulnerable: 0
 --- !u!212 &212859932837410952
 SpriteRenderer:
   m_ObjectHideFlags: 1
