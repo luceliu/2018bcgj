@@ -86,17 +86,19 @@ public class PlayerController : MonoBehaviour
 		
 
 		if (facingRight == true && facingUp == false) {
-			var bullet = (GameObject)Instantiate (bulletPrefab, transform.position, Quaternion.identity);
+			var newPosition = new Vector3 (transform.position.x + 1f, transform.position.y);
+			var bullet = (GameObject)Instantiate (bulletPrefab, newPosition, Quaternion.identity);
 			bullet.GetComponent<Rigidbody2D> ().velocity = bullet.transform.right * 6;
 			Destroy (bullet, 2);
 		} else if (facingRight == false && facingUp == false) {
 			
-			var newPosition = new Vector3 (transform.position.x - 1, transform.position.y);
+			var newPosition = new Vector3 (transform.position.x - 1f, transform.position.y);
 			var bullet = (GameObject)Instantiate (bulletPrefab, newPosition, Quaternion.identity);
 			bullet.GetComponent<Rigidbody2D> ().velocity = bullet.transform.right * -6;
 			Destroy (bullet, 2);
 		} else  {
-			var bullet = (GameObject)Instantiate (bulletPrefab, transform.position, Quaternion.identity);
+			var newPosition = new Vector3 (transform.position.x - 0.0f, transform.position.y+1f);
+			var bullet = (GameObject)Instantiate (bulletPrefab, newPosition, Quaternion.identity);
 			bullet.GetComponent<Rigidbody2D> ().velocity = bullet.transform.up * 6;
 			Destroy (bullet, 2);
 		}
