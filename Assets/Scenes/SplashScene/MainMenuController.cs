@@ -36,4 +36,15 @@ public class MainMenuController : MonoBehaviour
         GameObject.Find("CloseSound").GetComponent<AudioSource>().Play();
     }
 
+    public void OnClickExit()
+    {
+        EndSceneController.IgnoreVMMHack = true;
+
+        bool useGood = Random.Range(1, 1000) > 990;
+        if (useGood)
+            SceneManager.LoadScene("EndSceneBad2");
+        else
+            SceneManager.LoadScene("EndSceneBad");
+    }
+
 }
