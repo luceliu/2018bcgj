@@ -46,4 +46,9 @@ public class BattleTestController : MonoBehaviour
         GameData.Instance.BattleResult = false;
         SceneManager.LoadScene(GameData.OverworldSceneName);
     }
+
+    public void OnClickPlaySound()
+    {
+        SoundManager.Instance.PlaySound("shoot");
+    }
 }
