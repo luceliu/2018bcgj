@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
 	void Update ()
 	{
-		if (Input.GetKeyDown (KeyCode.V)) {
+		if (Input.GetButtonDown("Fire1")) {
 			Shoot ();
 		}
 
