@@ -20,7 +20,10 @@ public class DialogPanel : MonoBehaviour
     {
         int count = msgs.Count;
         string newDialog = "";
-        msgs.Add(msgToLog + "\n");
+        string time = "" + System.DateTime.Now + "] ";
+        int start = (time.IndexOf(":", System.StringComparison.CurrentCulture)) - 2;
+        time = "[" + time.Substring(start);
+        msgs.Add(time + msgToLog + "\n");
         // TODO: only display last 5 messages
         IEnumerable<string> displayMsgs = msgs.Skip(count - 5);
 
