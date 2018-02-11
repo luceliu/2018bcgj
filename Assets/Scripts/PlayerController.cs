@@ -87,7 +87,8 @@ public class PlayerController : MonoBehaviour
 		// jumping code
 		GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower);
 		anim.SetTrigger ("StartJump");
-		isGrounded = false;
+        SoundManager.Instance.PlaySound(SoundManager.JUMP_SOUND);
+        isGrounded = false;
 	}
 
 	void FlipPlayer()
@@ -137,6 +138,9 @@ public class PlayerController : MonoBehaviour
 
 	        var bullet = GameObject.Instantiate(bulletPrefab, bulletInitialPosition, Quaternion.identity);
 	        bullet.GetComponent<Rigidbody2D>().velocity = bulletVelocity;
+
+            // play sound
+            SoundManager.Instance.PlaySound(SoundManager.SHOOTBOOK_SOUND);
 
             // Don't let player shoot gain for timeDelay()
             Invoke("ResetBulletDelay", bulletDelay);

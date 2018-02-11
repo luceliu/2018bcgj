@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
 	}
 
 	void Shoot() {
+        SoundManager.Instance.PlaySound(SoundManager.PAPER_FIRE_SOUND);
 		Rigidbody2D bullet = (Rigidbody2D)Instantiate (projectile, transform.position, transform.rotation);
 		bullet.AddForce (transform.forward * bulletImpulse, ForceMode2D.Impulse);
 	}
@@ -36,6 +37,7 @@ public class Enemy : MonoBehaviour
             var player = col.gameObject.GetComponent<Player_Health>();
             if (player.isTangible == true)
             {
+                SoundManager.Instance.PlaySound(SoundManager.PAPER_HIT_SOUND);
                 player.PlayerHit();
             }
         }

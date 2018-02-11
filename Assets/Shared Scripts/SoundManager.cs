@@ -5,13 +5,13 @@ using UnityEngine;
 //maybe it doesn't actually need to be a MonoBehaviour? eh
 public class SoundManager : MonoBehaviour
 {
-    const string SHOOT_SOUND = "shoot";
-    const string SHOOTBOOK_SOUND = "shootbook";
-    const string JUMP_SOUND = "jump";
-    const string EXPLOSION_SOUND = "explosion";
-    const string PAPER_FIRE_SOUND = "paper";
-    const string PAPER_HIT_SOUND = "fail";
-    const string BOMB_SOUND = "bomb";
+    public const string SHOOT_SOUND = "shoot";
+    public const string SHOOTBOOK_SOUND = "shootbook";
+    public const string JUMP_SOUND = "jump";
+    public const string EXPLOSION_SOUND = "explosion";
+    public const string PAPER_FIRE_SOUND = "paper";
+    public const string PAPER_HIT_SOUND = "fail";
+    public const string BOMB_SOUND = "bomb";
 
     public static SoundManager Instance
     {

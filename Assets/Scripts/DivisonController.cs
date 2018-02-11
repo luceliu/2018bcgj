@@ -29,6 +29,7 @@ public class DivisonController : MonoBehaviour {
 		else if (col.gameObject.tag != "enemy")
 		{
 			GameObject explosion = Instantiate (explosionEffect, transform.position, Quaternion.identity);
+            SoundManager.Instance.PlaySound(SoundManager.EXPLOSION_SOUND);
 			Destroy (gameObject);
 			Destroy (explosion, 1);
 		}
