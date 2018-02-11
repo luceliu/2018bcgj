@@ -11,23 +11,18 @@ public class PlayerController : MonoBehaviour
     public int playerJumpPower = 1250;
     private float moveX;
     public bool isGrounded;
-	public Rigidbody2D projectile;
-	public float bulletImpulse = 50.0f;
+    public float bulletSpeed = 10;
+    public float bulletDelay = 1;
+    private bool canShoot = true;
     
 	// Update is called once per frame
 
 	void Update ()
 	{
-		
-		if (Input.GetKeyDown (KeyCode.W)) {
-			facingUp = true;
-		} else if (Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.D)) {
-			facingUp = false;
-		}
-
 		if (Input.GetKeyDown (KeyCode.V)) {
 			Shoot ();
 		}
+
 	    PlayerMove();
 
 	}
@@ -36,6 +31,15 @@ public class PlayerController : MonoBehaviour
     {
         // controls
         moveX = Input.GetAxis("Horizontal");
+        if (Input.GetAxis("Vertical") > 0f)
+        {
+            facingUp = true;
+        }
+        else
+        {
+            facingUp = false;
+        }
+
         if (Input.GetButtonDown("Jump") && isGrounded == true)
         {
             Jump();
@@ -82,27 +86,43 @@ public class PlayerController : MonoBehaviour
     }
 
 
-	void Shoot() {
-		
+	void Shoot()
+	{
+	    if (canShoot == true)
+	    {
+	        Vector3 bulletInitialPosition;
+	        Vector2 bulletVelocity;
 
-		if (facingRight == true && facingUp == false) {
-			var newPosition = new Vector3 (transform.position.x + 1f, transform.position.y);
-			var bullet = (GameObject)Instantiate (bulletPrefab, newPosition, Quaternion.identity);
-			bullet.GetComponent<Rigidbody2D> ().velocity = bullet.transform.right * 6;
-			Destroy (bullet, 2);
-		} else if (facingRight == false && facingUp == false) {
-			
-			var newPosition = new Vector3 (transform.position.x - 1f, transform.position.y);
-			var bullet = (GameObject)Instantiate (bulletPrefab, newPosition, Quaternion.identity);
-			bullet.GetComponent<Rigidbody2D> ().velocity = bullet.transform.right * -6;
-			Destroy (bullet, 2);
-		} else  {
-			var newPosition = new Vector3 (transform.position.x - 0.0f, transform.position.y+1f);
-			var bullet = (GameObject)Instantiate (bulletPrefab, newPosition, Quaternion.identity);
-			bullet.GetComponent<Rigidbody2D> ().velocity = bullet.transform.up * 6;
-			Destroy (bullet, 2);
-		}
-		//bullet.AddForce (transform.forward * bulletImpulse, ForceMode2D.Impulse);
+	        canShoot = false;
 
+	        if (facingRight == true && facingUp == false)
+	        {
+	            bulletInitialPosition = new Vector3(transform.position.x + 1f, transform.position.y);
+
+	            bulletVelocity = transform.right * bulletSpeed;
+	        }
+	        else if (facingRight == false && facingUp == false)
+	        {
+
+	            bulletInitialPosition = new Vector3(transform.position.x - 1f, transform.position.y);
+	            bulletVelocity = -transform.right * bulletSpeed;
+	        }
+	        else
+	        {
+	            bulletInitialPosition = new Vector3(transform.position.x - 0.0f, transform.position.y + 1f);
+	            bulletVelocity = transform.up * bulletSpeed;
+	        }
+
+	        var bullet = GameObject.Instantiate(bulletPrefab, bulletInitialPosition, Quaternion.identity);
+	        bullet.GetComponent<Rigidbody2D>().velocity = bulletVelocity;
+
+            // Don't let player shoot gain for timeDelay()
+            Invoke("ResetBulletDelay", bulletDelay);
+        }
 	}
+
+    private void ResetBulletDelay()
+    {
+        canShoot = true;
+    }
 }

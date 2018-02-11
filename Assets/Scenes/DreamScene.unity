@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1260,6 +1260,27 @@ Prefab:
     - target: {fileID: 4719093686636630, guid: 71528d74bda556c43a650a719d90b303, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114736470641314778, guid: 71528d74bda556c43a650a719d90b303,
+        type: 2}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1280435289217912, guid: d171ef8e2262bb542b3386babd973759,
+        type: 2}
+    - target: {fileID: 114736470641314778, guid: 71528d74bda556c43a650a719d90b303,
+        type: 2}
+      propertyPath: bulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 61706608354623902, guid: 71528d74bda556c43a650a719d90b303,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114736470641314778, guid: 71528d74bda556c43a650a719d90b303,
+        type: 2}
+      propertyPath: bulletDelay
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71528d74bda556c43a650a719d90b303, type: 2}

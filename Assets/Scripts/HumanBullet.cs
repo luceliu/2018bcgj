@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HumanBullet : MonoBehaviour {
-	public Rigidbody2D projectile;
-	public int bulletspeed = 5;
-	public float bulletImpulse = 20.0f;
 	// Use this for initialization
-	void Start () {
-		projectile = GetComponent<Rigidbody2D> ();
-
-
-		
+	void Start ()
+	{
+        // Bullet should keep track of when to destroy itself
+	    Destroy(gameObject, 2);
 	}
 	
 	// Update is called once per frame
@@ -19,4 +15,15 @@ public class HumanBullet : MonoBehaviour {
 		//transform.position= Vector3.MoveTowards(1) ;
 		
 	}
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag != "enemy")
+        {
+            // do something to enemy here
+        }
+
+        // regardless of what you hit, destroy yourself
+        Destroy(gameObject);
+
+    }
 }
