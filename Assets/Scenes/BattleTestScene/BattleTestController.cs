@@ -25,7 +25,9 @@ public class BattleTestController : MonoBehaviour
         LastSceneText.text = string.Format("Last Scene: {0} {1}", lastScene.ToString(), lastScene == SceneType.OverworldScene ? "√" : "X");
         LastZoneText.text = string.Format("Last Zone: {0}", GameData.Instance.LastZone);
 
-	}
+        GameData.Instance.CurrentInventory.GetItemsInInventory();
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
