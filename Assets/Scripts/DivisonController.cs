@@ -7,19 +7,38 @@ public class DivisonController : MonoBehaviour {
 	public float fallSpeed = 20.0f;
 	public float spinSpeed = 250.0f;
 	public GameObject explosionEffect;
-	/*
+
 	void Start() {
 		GameObject player = GameObject.FindGameObjectWithTag ("player");
+		Destroy (gameObject, 2);
 	}
-*/
-	void OnCollisionEnter2D() 
+
+	void OnTriggerEnter2D(Collider2D col)
 	{
-		//TODO: create an explosion when bomb hits the floor  
+		if (col.gameObject.tag == "player")
+		{
+			var player = col.gameObject.GetComponent<Player_Health> ();
+			Debug.Log ("get player");
+			if (player.isTangible)
+			{
+				Debug.Log ("Got hit");
+				player.PlayerHit();
+				Destroy(gameObject);
+			}
+		}
+		else if (col.gameObject.tag != "enemy")
+		{
+			GameObject explosion = Instantiate (explosionEffect, transform.position, Quaternion.identity);
+			Destroy (gameObject);
+			Destroy (explosion, 1);
+		}
+	}
+	/*
+	void onCollisonEnter2D() {
 		GameObject explosion = Instantiate (explosionEffect, transform.position, Quaternion.identity);
 		Destroy (gameObject);
 		Destroy (explosion, 1);
-	}
-
+	} */
 	// Update is called once per frame
 	void Update () {
 		transform.Translate (Vector3.down * fallSpeed * Time.deltaTime, Space.World);
