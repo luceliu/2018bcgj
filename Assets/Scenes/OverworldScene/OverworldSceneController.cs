@@ -34,7 +34,13 @@ namespace Overworld
             //reset fields
             GameData.Instance.BattleResult = null;
             GameData.Instance.LastScene = SceneType.OverworldScene;
-            GameData.Instance.LastZone = ZoneEnvironment.EmptyRoom;
+            //GameData.Instance.LastZone = ZoneEnvironment.EmptyRoom;
+
+            //position player
+            if(GameData.Instance.PlayerPosition.HasValue)
+            {
+                GameObject.FindGameObjectWithTag("Player").transform.position = GameData.Instance.PlayerPosition.Value;
+            }
         }
 
         // Update is called once per frame
@@ -50,6 +56,10 @@ namespace Overworld
         {
             if (ZonePlayerIsIn != null)
                 GameData.Instance.LastZone = ZonePlayerIsIn.Zone;
+            else
+                GameData.Instance.LastZone = ZoneEnvironment.EmptyRoom;
+
+            GameData.Instance.PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
 
             switch (GameData.Instance.LastZone)
             {

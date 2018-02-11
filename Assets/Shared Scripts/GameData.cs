@@ -61,4 +61,5 @@ public class GameData
     public bool? BattleResult { get; set; }
 
     public bool TookMelatonin { get; set; }
+    public Vector3? PlayerPosition { get; set; }
 }

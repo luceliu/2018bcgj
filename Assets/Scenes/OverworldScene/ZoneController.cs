@@ -20,6 +20,9 @@ namespace Overworld
             {
                 SceneController = transform.root.GetComponent<OverworldSceneController>();
             }
+
+            if (GameData.Instance.LastZone == Zone)
+                InZone = true;
         }
 
         // Update is called once per frame

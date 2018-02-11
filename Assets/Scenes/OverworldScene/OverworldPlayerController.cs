@@ -67,7 +67,7 @@ namespace Overworld
         private static void HandleKeyDown()
         {
             // for now, try to use item by pressing space
-            if (Input.GetKeyDown("space"))
+            if (Input.GetKeyDown("space") || Input.GetButtonDown("Fire3"))
             {
                 //Debug.Log("Space was pressed");
                 GameData.Instance.CurrentInventory.Use("melatonin");
@@ -130,7 +130,7 @@ namespace Overworld
 
         IEnumerator FadeoutAwaitCoroutine()
         {
-            const float interval = 1.0f;
+            const float interval = 3.0f;
 
             DontDestroyOnLoad(Instantiate<GameObject>(Resources.Load<GameObject>("PFX_dreamtime")));
 
