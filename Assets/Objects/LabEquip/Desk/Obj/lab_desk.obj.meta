@@ -1,0 +1,138 @@
+fileFormatVersion: 2
+guid: 0ea5fcba61e131440876fcf3c5650d4e
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Beaker1_Glass_lab_props.png
+    100002: Beaker2_Glass_lab_props.png
+    100004: Chemical_default2
+    100006: Desk_default_desk
+    100008: //RootNode
+    100010: Microscope_Microscope_auv
+    100012: Pressurizer_base_Device1_auv
+    100014: Pressurizer_PressureCan_auv
+    100016: Stand_Rack
+    100018: Test_tube_rack_Rack
+    100020: Tube1_Glass_lab_props.png
+    100022: Tube2_Glass_lab_props.png
+    100024: Tube3_Glass_lab_props.png
+    400000: Beaker1_Glass_lab_props.png
+    400002: Beaker2_Glass_lab_props.png
+    400004: Chemical_default2
+    400006: Desk_default_desk
+    400008: //RootNode
+    400010: Microscope_Microscope_auv
+    400012: Pressurizer_base_Device1_auv
+    400014: Pressurizer_PressureCan_auv
+    400016: Stand_Rack
+    400018: Test_tube_rack_Rack
+    400020: Tube1_Glass_lab_props.png
+    400022: Tube2_Glass_lab_props.png
+    400024: Tube3_Glass_lab_props.png
+    2300000: Beaker1_Glass_lab_props.png
+    2300002: Beaker2_Glass_lab_props.png
+    2300004: Chemical_default2
+    2300006: Desk_default_desk
+    2300008: Microscope_Microscope_auv
+    2300010: Pressurizer_base_Device1_auv
+    2300012: Pressurizer_PressureCan_auv
+    2300014: Stand_Rack
+    2300016: Test_tube_rack_Rack
+    2300018: Tube1_Glass_lab_props.png
+    2300020: Tube2_Glass_lab_props.png
+    2300022: Tube3_Glass_lab_props.png
+    3300000: Beaker1_Glass_lab_props.png
+    3300002: Beaker2_Glass_lab_props.png
+    3300004: Chemical_default2
+    3300006: Desk_default_desk
+    3300008: Microscope_Microscope_auv
+    3300010: Pressurizer_base_Device1_auv
+    3300012: Pressurizer_PressureCan_auv
+    3300014: Stand_Rack
+    3300016: Test_tube_rack_Rack
+    3300018: Tube1_Glass_lab_props.png
+    3300020: Tube2_Glass_lab_props.png
+    3300022: Tube3_Glass_lab_props.png
+    4300000: Beaker1_Glass_lab_props.png
+    4300002: Beaker2_Glass_lab_props.png
+    4300004: Chemical_default2
+    4300006: Desk_default_desk
+    4300008: Microscope_Microscope_auv
+    4300010: Pressurizer_base_Device1_auv
+    4300012: Pressurizer_PressureCan_auv
+    4300014: Stand_Rack
+    4300016: Test_tube_rack_Rack
+    4300018: Tube1_Glass_lab_props.png
+    4300020: Tube2_Glass_lab_props.png
+    4300022: Tube3_Glass_lab_props.png
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 3
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
