@@ -12,7 +12,7 @@ public class DivisonController : MonoBehaviour {
 		GameObject player = GameObject.FindGameObjectWithTag ("player");
 	}
 */
-	void OnCollisionEnter2D() 
+	void OnTriggerEnter2D() 
 	{
 		//TODO: create an explosion when bomb hits the floor  
 		GameObject explosion = Instantiate (explosionEffect, transform.position, Quaternion.identity);

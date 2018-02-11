@@ -17,9 +17,10 @@ public class HumanBullet : MonoBehaviour {
 	}
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag != "enemy")
+        if (col.gameObject.tag == "enemy")
         {
-            // do something to enemy here
+            var enemy = col.GetComponent<EnemyHealth>();
+            enemy.GetHit();
         }
 
         // regardless of what you hit, destroy yourself
