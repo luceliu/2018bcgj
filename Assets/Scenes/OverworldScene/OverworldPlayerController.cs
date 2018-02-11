@@ -132,6 +132,8 @@ namespace Overworld
         {
             const float interval = 1.0f;
 
+            DontDestroyOnLoad(Instantiate<GameObject>(Resources.Load<GameObject>("PFX_dreamtime")));
+
             GetComponentInChildren<FadeHackScript>().ExecuteFadeout(interval);
 
             yield return new WaitForSeconds(interval);
@@ -194,6 +196,7 @@ namespace Overworld
                 Item i = other.GetComponent<Item>();
                 GameData.Instance.CurrentInventory.AddItem(i);
                 GameData.Instance.CurrentInventory.GetItemsInInventory();
+                Instantiate<GameObject>(Resources.Load<GameObject>("PFX_pickup"), other.transform.position, Quaternion.identity, transform.root);
             }
         }
     }

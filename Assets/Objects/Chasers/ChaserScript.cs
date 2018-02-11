@@ -136,7 +136,7 @@ public class ChaserScript : MonoBehaviour
             if (distTravelled >= distToTravel * 0.33f)
             {
                 State = ChaserState.Glide;
-                Debug.Log("Entering glide phase");
+                //Debug.Log("Entering glide phase");
             }
                 
         }
@@ -145,7 +145,7 @@ public class ChaserScript : MonoBehaviour
             if (distTravelled >= distToTravel * 0.66f)
             {
                 State = ChaserState.Terminal;
-                Debug.Log("Entering terminal phase");
+                //Debug.Log("Entering terminal phase");
             }                
         }
 
