@@ -7,14 +7,18 @@ public class GameController : MonoBehaviour
 {
     private static GameController ActualInstance;
     public GameObject finishFlag;
-    public Enemy targetEnemy;
+    public MathMonsterController targetEnemy;
+    public bool flagActiveAtStart;
 
     void Awake()
     {
         VideoModeManager.SetDreamworld();
         finishFlag = GameObject.Find("FinishFlag");
-        finishFlag.gameObject.SetActive(false);
-        targetEnemy = GameObject.Find("Enemy").GetComponent<Enemy>();
+        finishFlag.gameObject.SetActive(flagActiveAtStart);
+        //if (!flagActiveAtStart)
+        //{
+        //    //targetEnemy = GameObject.Find("Enemy").GetComponent<MathMonsterController>();
+        //}
     }
 
     // Use this for initialization
@@ -26,7 +30,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (targetEnemy == null)
+        {
+            DefeatedTargetEnemy();
+        }
     }
 
     public void WakeUp(bool battleWon)

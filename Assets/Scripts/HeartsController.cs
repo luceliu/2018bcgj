@@ -25,7 +25,7 @@ public class HeartsController : MonoBehaviour
         Heart3.SetActive(true);
         Heart2.SetActive(true);
         Heart1.SetActive(true);
-
+        Heart4.SetActive(false);
         if (GameData.Instance.TookMelatonin)
             Heart4.SetActive(true);
     }
