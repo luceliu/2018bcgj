@@ -5,8 +5,10 @@ public class MathMonsterController : MonoBehaviour {
 	public enum OccilationFunction { Sine, Cosine};
 	public Rigidbody2D projectile;
 	public float bulletImpulse = 50.0f;
+    private float startingPosition;
 	public void Start()
 	{
+        startingPosition = gameObject.transform.position.x;
 		StartCoroutine (Oscillate (OccilationFunction.Sine, 15f));
 		float rand = Random.Range (0.5f, 1.0f);
 		InvokeRepeating ("Shoot", 2, rand);
@@ -24,11 +26,11 @@ public class MathMonsterController : MonoBehaviour {
 			{
 				if (method == OccilationFunction.Sine)
 				{
-					transform.position = new Vector3 (Mathf.Sin (Time.time) * scalar, transform.position.y, 0);
+					transform.position = new Vector3 (Mathf.Sin (Time.time) * scalar + startingPosition, transform.position.y, 0);
 				} 
 				else if (method == OccilationFunction.Cosine)
 				{
-					transform.position = new Vector3 (Mathf.Cos (Time.time) * scalar, transform.position.y, 0);
+					transform.position = new Vector3 (Mathf.Cos (Time.time) * scalar + startingPosition, transform.position.y, 0);
 				}
 				yield return new WaitForEndOfFrame ();
 			}
