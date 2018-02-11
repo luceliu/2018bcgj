@@ -30,7 +30,8 @@ public class RealInventory : Inventory
 
             else
             {
-                itemDict.Add(item, 1); ;
+                //Item itemCopy = Object.Instantiate(item); // does this work
+                itemDict.Add(Instantiate(item), 1);
                 Debug.Log("Picked up a brand new " + item.itemID);
             }
 

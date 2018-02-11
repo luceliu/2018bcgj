@@ -44,7 +44,6 @@ public class GameData
     public GameData()
     {
         CurrentInventory = ScriptableObject.CreateInstance<RealInventory>();
-        Debug.Log("inventory created");
         PlayerEnergy = PlayerMaxEnergy;
     }
 
