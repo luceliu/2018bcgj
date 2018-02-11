@@ -29,6 +29,7 @@ public class GameData
     private static GameData ActualInstance;
     public RealInventory CurrentInventory { get; private set; }
     public InventoryPanel inventoryPanel;
+    public DialogPanel dialogPanel;
     public static GameData Instance
     {
         get
@@ -46,6 +47,7 @@ public class GameData
         PlayerEnergy = PlayerMaxEnergy;
         TookMelatonin = false;
         inventoryPanel = GameObject.Find("Canvas").GetComponent<InventoryPanel>();
+        dialogPanel = GameObject.Find("DialogPanel").GetComponent<DialogPanel>();
     }
 
     //actual properties

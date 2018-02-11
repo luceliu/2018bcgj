@@ -12,12 +12,6 @@ public class InventoryPanel : MonoBehaviour
         melatoninCount.text = GameData.Instance.CurrentInventory.GetCountOf("melatonin").ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void UpdatePanelCount()
     {
         melatoninCount.text = GameData.Instance.CurrentInventory.GetCountOf("melatonin").ToString();
