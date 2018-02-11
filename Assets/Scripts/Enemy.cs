@@ -36,7 +36,10 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("I hit the player");
             var player = col.gameObject.GetComponent<Player_Health>();
-            player.PlayerHit();
+            if (player.isTangible == true)
+            {
+                player.PlayerHit();
+            }
         }
         else
         {
