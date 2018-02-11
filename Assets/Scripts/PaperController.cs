@@ -12,16 +12,26 @@ public class PaperController : MonoBehaviour {
 	void Start() {
 		GameObject player = GameObject.FindGameObjectWithTag ("player");
 		playerPosition = player.transform.position;
-	}
+	    Destroy(gameObject, 2);
+    }
 
-	void OnCollisionEnter2D(Collision2D col)
+	void OnTriggerEnter2D(Collider2D col)
 	{
 		if (col.gameObject.tag == "player")
 		{
-			Debug.Log("I hit the player");
+            // If you collide into the player, and the player is tangible, hit them and blow up
 			var player = col.gameObject.GetComponent<Player_Health>();
-			player.PlayerDies();
+		    if (player.isTangible)
+		    {
+		        player.PlayerHit();
+		        Destroy(gameObject);
+		    }
 		}
+		else if (col.gameObject.tag != "enemy")
+		{
+            // If you collide into something that isn't yourself, delete yourself
+		    Destroy(gameObject);
+        }
 	}
 	// Update is called once per frame
 	void Update () {

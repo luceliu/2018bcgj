@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61888900165482396}
   m_Layer: 0
   m_Name: Prototyping Art_3 (1)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,8 +35,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1814426637833664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.75, y: -2.27, z: 0}
-  m_LocalScale: {x: 1.5053403, y: 3.9401634, z: 1}
+  m_LocalPosition: {x: 65.75, y: -2.72, z: 0}
+  m_LocalScale: {x: 1.3490295, y: 2.174705, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
