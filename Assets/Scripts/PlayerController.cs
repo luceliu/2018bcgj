@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+	public GameObject bulletPrefab;
 	public int playerSpeed = 10;
 	private bool facingRight = true;
+	private bool facingUp = false;
 	public int playerJumpPower = 1250;
 	private float moveX;
 	public bool isGrounded;
 	// Reference to the Animator
 	private Animator anim;
 	private bool running;
+    public float bulletSpeed = 10;
+    public float bulletDelay = 1;
+    private bool canShoot = true;
 
 	void Start()
 	{
@@ -23,6 +27,10 @@ public class PlayerController : MonoBehaviour
 
 	void Update ()
 	{
+		if (Input.GetKeyDown (KeyCode.V)) {
+			Shoot ();
+		}
+
 		PlayerMove();
 		if (Input.GetAxis ("Horizontal") != 0)
 		{
@@ -44,6 +52,15 @@ public class PlayerController : MonoBehaviour
 	{
 		// controls
 		moveX = Input.GetAxis("Horizontal");
+        if (Input.GetAxis("Vertical") > 0f)
+        {
+            facingUp = true;
+        }
+        else
+        {
+            facingUp = false;
+        }
+
 		if (Input.GetButtonDown("Jump") && isGrounded == true)
 		{
 			Jump();
@@ -88,5 +105,46 @@ public class PlayerController : MonoBehaviour
 		{
 			isGrounded = true;
 		}
+    }
+
+
+	void Shoot()
+	{
+	    if (canShoot == true)
+	    {
+	        Vector3 bulletInitialPosition;
+	        Vector2 bulletVelocity;
+
+	        canShoot = false;
+
+	        if (facingRight == true && facingUp == false)
+	        {
+	            bulletInitialPosition = new Vector3(transform.position.x + 1f, transform.position.y);
+
+	            bulletVelocity = transform.right * bulletSpeed;
+	        }
+	        else if (facingRight == false && facingUp == false)
+	        {
+
+	            bulletInitialPosition = new Vector3(transform.position.x - 1f, transform.position.y);
+	            bulletVelocity = -transform.right * bulletSpeed;
+	        }
+	        else
+	        {
+	            bulletInitialPosition = new Vector3(transform.position.x - 0.0f, transform.position.y + 1f);
+	            bulletVelocity = transform.up * bulletSpeed;
+	        }
+
+	        var bullet = GameObject.Instantiate(bulletPrefab, bulletInitialPosition, Quaternion.identity);
+	        bullet.GetComponent<Rigidbody2D>().velocity = bulletVelocity;
+
+            // Don't let player shoot gain for timeDelay()
+            Invoke("ResetBulletDelay", bulletDelay);
+        }
+	}
+
+    private void ResetBulletDelay()
+    {
+        canShoot = true;
 	}
 }

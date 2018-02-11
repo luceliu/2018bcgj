@@ -6,8 +6,6 @@ public class Enemy : MonoBehaviour
 {
     public int EnemySpeed;
     public int XMoveDirection;
-	//public PaperController paper;
-	public Transform player;
 	public Rigidbody2D projectile;
 	public float bulletImpulse = 50.0f;
 

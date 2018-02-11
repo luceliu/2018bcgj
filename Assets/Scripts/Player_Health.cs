@@ -53,7 +53,6 @@ public class Player_Health : MonoBehaviour
 	public void PlayerInvulnerabilityStart()
 	{
 		isTangible = false;
-		gameObject.GetComponent<Rigidbody2D>().
 		gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
 		anim.SetTrigger ("GotHit");
 		Invoke("ResetInvulnerability", secondsInvulnerable);
