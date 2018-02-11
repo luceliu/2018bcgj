@@ -8,6 +8,8 @@ namespace Overworld
 
     public class OverworldSceneController : MonoBehaviour
     {
+        const long EndTicks = 6000000000; //10000000 * 60sec * 10min
+        private static long? StartTime;
 
         public ZoneController ZonePlayerIsIn; //this should probably be encapsulated but Unity hates proper ooop
 
@@ -16,6 +18,10 @@ namespace Overworld
             VideoModeManager.Init();
             VideoModeManager.SetOverworld();
 
+            if(!StartTime.HasValue)
+            {
+                StartTime = System.DateTime.Now.Ticks;
+            }
             
         }
 
@@ -34,7 +40,10 @@ namespace Overworld
         // Update is called once per frame
         void Update()
         {
-
+            if(System.DateTime.Now.Ticks - StartTime.Value >= EndTicks)
+            {
+                SceneManager.LoadScene("EndScene");
+            }
         }
 
         public void ExitToDreamworld()
