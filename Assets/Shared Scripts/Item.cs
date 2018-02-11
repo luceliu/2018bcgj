@@ -14,14 +14,4 @@ public abstract class Item : MonoBehaviour
         inInventory = false;
     }
 
-    void Update()
-    {
-        //if (inInventory)
-        //{
-        //    GetComponent<Renderer>().enabled = false;
-        //    Destroy(this.gameObject);
-        //    Debug.Log("should have disabled");
-        //}
-    }
-
 }
