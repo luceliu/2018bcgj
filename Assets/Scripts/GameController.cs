@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         VideoModeManager.SetDreamworld();
+        finishFlag = GameObject.Find("FinishFlag");
         finishFlag.gameObject.SetActive(false);
         targetEnemy = GameObject.Find("Enemy").GetComponent<Enemy>();
     }
@@ -43,6 +44,6 @@ public class GameController : MonoBehaviour
 
     public void ReachFlagAndEndDream() // insert some victorious transition back to overworld
     {
-
+        GameObject.Find("GameController").GetComponent<GameController>().WakeUp(true);
     }
 }

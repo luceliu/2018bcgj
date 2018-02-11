@@ -154,9 +154,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision == GameObject.Find("FinishFlag").GetComponent<Collider2D>())
+        if (collision.gameObject.name == "FinishFlag")
         {
-            GameController.Instance.ReachFlagAndEndDream();
+            GameObject.Find("GameController").GetComponent<GameController>().ReachFlagAndEndDream();
         }
     }
 }
