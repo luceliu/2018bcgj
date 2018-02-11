@@ -13,4 +13,6 @@ public abstract class Inventory : ScriptableObject
     public abstract void AddItem(Item item);
 
     public abstract void GetItemsInInventory();
+
+    public abstract void Use(string item);
 }

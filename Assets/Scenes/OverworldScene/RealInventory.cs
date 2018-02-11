@@ -34,7 +34,6 @@ public class RealInventory : Inventory
                 Debug.Log("Picked up a brand new " + item.itemID);
             }
 
-            //item.inInventory = true;
             Destroy(item.gameObject);
             Debug.Log("Destroyed");
         }
@@ -42,10 +41,39 @@ public class RealInventory : Inventory
 
     public override void GetItemsInInventory()
     {
+        Debug.Log("Inventory:");
         foreach (KeyValuePair<string, int> entry in itemDict)
         {
             // do something with entry.Value or entry.Key
             Debug.Log("<" + entry.Key + ", " + entry.Value + ">");
         }
     }
+
+    public override void Use(string item)
+    {
+        if (itemDict.ContainsKey(item) && itemDict[item] > 0)
+        {
+            UseAccordingly(item);
+            itemDict[item] -= 1;
+            Debug.Log("You used " + item + "!");
+        }
+
+        else
+        {
+            Debug.Log("You don't have this item! Can't use.");
+        }
+    }
+
+    public void UseAccordingly(string item)
+    {
+        switch (item)
+        {
+            case "melatonin":
+                // TODO: do something to use it - set a flag in GameData perhaps?
+                GameData.Instance.TookMelatonin = true;
+                Debug.Log("GameData knows that you took melatonin");
+                break;
+        }
+    }
+
 }

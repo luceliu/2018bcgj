@@ -45,6 +45,7 @@ public class GameData
     {
         CurrentInventory = ScriptableObject.CreateInstance<RealInventory>();
         PlayerEnergy = PlayerMaxEnergy;
+        TookMelatonin = false;
     }
 
     //actual properties
@@ -52,4 +53,6 @@ public class GameData
     public SceneType LastScene { get; set; }
     public ZoneEnvironment LastZone { get; set; }
     public bool? BattleResult { get; set; }
+
+    public bool TookMelatonin { get; set; }
 }

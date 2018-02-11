@@ -32,7 +32,7 @@ namespace Overworld
 
         private float IntendedCameraRotation;
         private float IntendedCameraElevation;
-        
+
 
         // Use this for initialization
         void Start()
@@ -61,6 +61,22 @@ namespace Overworld
             HandleCamera();
             HandleMove();
             HandleEnergy();
+            HandleKeyDown();
+        }
+
+        private static void HandleKeyDown()
+        {
+            // for now, try to use item by pressing space
+            if (Input.GetKeyDown("space"))
+            {
+                //Debug.Log("Space was pressed");
+                GameData.Instance.CurrentInventory.Use("melatonin");
+            }
+
+            else if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                GameData.Instance.CurrentInventory.GetItemsInInventory();
+            }
         }
 
         private void LateUpdate()
@@ -71,13 +87,13 @@ namespace Overworld
         private void HandleCamera()
         {
             float rotateValue = Input.GetAxis("Mouse X");
-            if(Mathf.Abs(rotateValue) > RotateDeadzone)
+            if (Mathf.Abs(rotateValue) > RotateDeadzone)
             {
                 IntendedCameraRotation += (rotateValue * CameraRotateFactor * Time.deltaTime);
             }
 
             float elevateValue = Input.GetAxis("Mouse Y");
-            if(Mathf.Abs(elevateValue) > RotateDeadzone)
+            if (Mathf.Abs(elevateValue) > RotateDeadzone)
             {
                 IntendedCameraElevation += (elevateValue * CameraElevateFactor * Time.deltaTime);
                 IntendedCameraElevation = Mathf.Clamp(IntendedCameraElevation, RotateVertMin, RotateVertMax);
@@ -108,7 +124,7 @@ namespace Overworld
             PlayerAnimator.Play("Idle"); //TODO get sleep animation
 
             //fadeout/coroutine/etc
-            StartCoroutine(FadeoutAwaitCoroutine());            
+            StartCoroutine(FadeoutAwaitCoroutine());
 
         }
 
